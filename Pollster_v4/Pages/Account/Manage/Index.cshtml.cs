@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Pollster_v4.Data;
 using Pollster_v4.Services;
+using static Pollster_v4.Models.Enums;
 
 namespace Pollster_v4.Pages.Account.Manage
 {
@@ -62,7 +63,7 @@ namespace Pollster_v4.Pages.Account.Manage
             Input = new InputModel
             {
                 Email = user.Email,
-                PhoneNumber = user.PhoneNumber
+                PhoneNumber = user.PhoneNumber,
             };
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);

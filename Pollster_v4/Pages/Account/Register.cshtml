@@ -13,6 +13,11 @@
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Input.UserName"></label>
+                <input asp-for="Input.UserName" class="form-control" />
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
@@ -26,6 +31,53 @@
                 <label asp-for="Input.ConfirmPassword"></label>
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.PostalCode"></label>
+                <input asp-for="Input.PostalCode" class="form-control" />
+                <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Gender"></label>
+                <select asp-for="Input.Gender" class="form-control" asp-items="Html.GetEnumSelectList<Models.Enums.Gender>()">
+                    <option value="">--Select Gender--</option>
+                </select>
+                <span asp-validation-for="Input.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.MaritalStatus"></label>
+                <select asp-for="Input.MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<Models.Enums.MaritalStatus>()">
+                    <option value="">--Select Marital Status--</option>
+                </select>
+                <span asp-validation-for="Input.MaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Education"></label>
+                <select asp-for="Input.Education" class="form-control" asp-items="Html.GetEnumSelectList<Models.Enums.Education>()">
+                    <option value="">--Select Highest Education--</option>
+                </select>
+                <span asp-validation-for="Input.Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Politics"></label>
+                <select asp-for="Input.Politics" class="form-control" asp-items="Html.GetEnumSelectList<Models.Enums.Politics>()">
+                    <option value="">--Select Polical Party--</option>
+                </select>
+                <span asp-validation-for="Input.Politics" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Religion"></label>
+                <select asp-for="Input.Religion" class="form-control" asp-items="Html.GetEnumSelectList<Models.Enums.Religion>()">
+                    <option value="">--Select Religious Preference--</option>
+                </select>
+                <span asp-validation-for="Input.Religion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Income"></label>
+                <select asp-for="Input.Income" class="form-control" asp-items="Html.GetEnumSelectList<Models.Enums.Income>()">
+                    <option value="">--Select Household Income--</option>
+                </select>
+                <span asp-validation-for="Input.Income" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-default">Register</button>
         </form>

@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Pollster_v4.Models;
 
 namespace Pollster_v4.Data
 {
@@ -13,6 +14,9 @@ namespace Pollster_v4.Data
             : base(options)
         {
         }
+
+        public DbSet<Questions> Questions { get; set; }
+        public DbSet<Options> Options {get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

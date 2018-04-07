@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Pollster_v4.Data;
 using Pollster_v4.Services;
+using static Pollster_v4.Models.Enums;
 
 namespace Pollster_v4.Pages.Account
 {
@@ -39,6 +40,10 @@ namespace Pollster_v4.Pages.Account
         public class InputModel
         {
             [Required]
+            [Display(Name = "User Name")]
+            public string UserName { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -53,10 +58,27 @@ namespace Pollster_v4.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Display(Name = "Highest Education Completed")] 
+            public Education Education { get; set; }
+            [Display(Name = "Gender Identity")]
+            public Gender Gender { get; set; }
+            [Display(Name = "Household Income")]
+            public Income Income { get; set; }
+            [Display(Name = "Marital Status")]
+            public MaritalStatus MaritalStatus { get; set; }
+            [Display(Name = "Religous Affinity")]
+            public Religion Religion { get; set; }
+            [Display(Name = "Political Affiliation")]
+            public Politics Politics { get; set; }
+            [Display(Name = "Postal Code")]
+            public string PostalCode { get; set; }
+
         }
 
         public void OnGet(string returnUrl = null)
         {
+
             ReturnUrl = returnUrl;
         }
 
@@ -65,7 +87,7 @@ namespace Pollster_v4.Pages.Account
             ReturnUrl = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, Education = Input.Education, Gender = Input.Gender, Income = Input.Income, MaritalStatus = Input.MaritalStatus, Religion = Input.Religion, Politics = Input.Politics, PostalCode = Input.PostalCode };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
