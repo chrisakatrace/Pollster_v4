@@ -12,9 +12,10 @@ using System;
 namespace Pollster_v4.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180412162622_AddedQuestions")]
+    partial class AddedQuestions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,7 +219,7 @@ namespace Pollster_v4.Data.Migrations
 
                     b.Property<int>("QuestionType");
 
-                    b.Property<string>("UsersName")
+                    b.Property<string>("UserId")
                         .IsRequired();
 
                     b.HasKey("Id");

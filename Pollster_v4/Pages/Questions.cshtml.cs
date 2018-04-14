@@ -10,17 +10,21 @@ using Pollster_v4.Models;
 
 namespace Pollster_v4.Pages
 {
-    public class CreateModel : PageModel
+    public class QuestionsModel : PageModel
     {
         private readonly Pollster_v4.Data.ApplicationDbContext _context;
 
-        public CreateModel(Pollster_v4.Data.ApplicationDbContext context)
+        public QuestionsModel(Pollster_v4.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
+        public string UserId { get; set; }
+
         public IActionResult OnGet()
         {
+            UserId = HttpContext.User.Identity.Name;
+
             return Page();
         }
 
@@ -37,7 +41,9 @@ namespace Pollster_v4.Pages
             _context.Questions.Add(Questions);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            TempData["QuestionId"] = _context.Questions.Find("Id");
+
+            return RedirectToPage("./Options");
         }
     }
 }

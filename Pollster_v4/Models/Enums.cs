@@ -78,5 +78,13 @@ namespace Pollster_v4.Models
             Republican = 3,
             Regressive = 4
         }
+
+        public enum QuestionType
+        {
+            [EnumMember(Value = "Multiple Choice")]
+            MultipleChoice = 1,
+            ChooseOne = 2,
+            Slider = 3
+        }
     }
 }

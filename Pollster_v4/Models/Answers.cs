@@ -8,7 +8,7 @@ namespace Pollster_v4.Models
     public class Answers
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public string UsersName { get; set; }
         public int OptionId { get; set; }
     }
 }
