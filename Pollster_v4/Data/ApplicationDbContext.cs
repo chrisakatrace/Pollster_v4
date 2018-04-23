@@ -16,7 +16,7 @@ namespace Pollster_v4.Data
         }
 
         public DbSet<Questions> Questions { get; set; }
-        public DbSet<Options> Options {get; set;}
+        public DbSet<Answers> Answers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

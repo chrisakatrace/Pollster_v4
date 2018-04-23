@@ -12,7 +12,7 @@ namespace Pollster_v4.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "Header - Blah, Blah, Blah";
         }
     }
 }

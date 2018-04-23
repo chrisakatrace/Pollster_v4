@@ -41,9 +41,7 @@ namespace Pollster_v4.Pages
             _context.Questions.Add(Questions);
             await _context.SaveChangesAsync();
 
-            TempData["QuestionId"] = _context.Questions.Find("Id");
-
-            return RedirectToPage("./Options");
+            return RedirectToPage("./Index");
         }
     }
 }

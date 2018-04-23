@@ -12,9 +12,10 @@ using System;
 namespace Pollster_v4.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180417024148_AddedToOptions")]
+    partial class AddedToOptions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,23 +193,6 @@ namespace Pollster_v4.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("Pollster_v4.Models.Answers", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("OptionNumber");
-
-                    b.Property<int>("QuestionId");
-
-                    b.Property<string>("UserName")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Answers");
                 });
 
             modelBuilder.Entity("Pollster_v4.Models.Questions", b =>

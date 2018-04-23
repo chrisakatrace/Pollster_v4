@@ -12,7 +12,7 @@ namespace Pollster_v4.Pages
 
         public void OnGet()
         {
-            Message = "Your contact page.";
+            Message = "Contact Us - Blah, blah, blah";
         }
     }
 }

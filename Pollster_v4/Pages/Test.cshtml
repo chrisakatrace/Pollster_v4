@@ -1,0 +1,72 @@
+﻿@page
+@model Pollster_v4.Pages.TestModel
+
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h2>Test</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Questions[0].UsersName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Questions[0].Question)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Questions[0].QuestionType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Questions[0].Option1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Questions[0].Option2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Questions[0].Option3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Questions[0].Option4)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Questions) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsersName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Option1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Option2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Option3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Option4)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

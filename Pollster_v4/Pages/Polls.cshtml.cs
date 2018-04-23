@@ -4,32 +4,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Pollster_v4.Data;
 using Pollster_v4.Models;
 
 namespace Pollster_v4.Pages
 {
-    public class OptionsModel : PageModel
+    public class PollsModel : PageModel
     {
         private readonly Pollster_v4.Data.ApplicationDbContext _context;
 
-        public OptionsModel(Pollster_v4.Data.ApplicationDbContext context)
+        public PollsModel(Pollster_v4.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public string QuestionsId { get; set; }
+        public IList<Questions> Questions { get; set; }
 
-        public IActionResult OnGet()
+        public async Task OnGetAsync()
         {
-            QuestionsId = TempData["QuestionsId"].ToString();
-
-            return Page();
+            Questions = await _context.Questions.ToListAsync();
         }
 
         [BindProperty]
-        public Options Options { get; set; }
+        public Answers Answers { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -38,10 +36,10 @@ namespace Pollster_v4.Pages
                 return Page();
             }
 
-            _context.Options.Add(Options);
+            _context.Answers.Add(Answers);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Options");
+            return Page();
         }
     }
 }

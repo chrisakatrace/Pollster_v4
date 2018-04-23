@@ -17,5 +17,11 @@ namespace Pollster_v4.Models
         [Required]
         public string Question { get; set; }
         public QuestionType QuestionType { get; set; }
+        [Required]
+        public string Option1 { get; set; }
+        [Required]
+        public string Option2 { get; set; }
+        public string Option3 { get; set; }
+        public string Option4 { get; set; }
     }
 }
